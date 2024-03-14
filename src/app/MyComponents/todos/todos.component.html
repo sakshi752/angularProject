@@ -1,0 +1,26 @@
+<div class="" style="margin-left:100px;">
+  <h1 class=" mt-5">Sakshi's {{title}} 🦄</h1>
+  <form (submit)="addTodo()" class="">
+    <div class="">
+      <label for="title">Title:</label>
+      <input type="text" id="title" [(ngModel)]="newTodo.title" name="title">
+    </div>
+    <div>
+      <label for="desc">Description:</label>
+      <input type="text" id="desc" [(ngModel)]="newTodo.desc" name="desc">
+    </div>
+    <button type="submit" class="btn btn-primary mt-4">Add Todo</button>
+  </form>
+  <div class="mt-4" *ngIf="this.todos.length===0; else elseBlock">
+    no todo to show
+  </div>
+  <!-- you can define template content that is only being rendered by Angular when you, whether directly or indirectly, specifically instruct it to do so, allowing you to have full control over how and when the content is displayed. -->
+  <ng-template #elseBlock>
+    
+    <div class="mt-5" *ngFor="let todo of todos">
+      <app-todo-item [todo]="todo" (todoDelete)="deleteTodo($event)">
+      </app-todo-item>
+
+    </div>
+  </ng-template>
+</div>

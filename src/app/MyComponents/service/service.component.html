@@ -1,0 +1,10 @@
+<div class="cont">
+    <h5>Services example</h5>
+    <input type="text" placeholder="enter username" [(ngModel)]="username">
+    <input type="password" placeholder="enter password" [(ngModel)]="password">
+    <div class="btnContainer"> 
+        <button (click)="login()" class="btn btn-primary">Login</button>
+        <button (click)="logout()" class="btn btn-primary">Logout</button>
+    </div>
+    <p *ngIf="userAuthService.isAuthenticated()">User is logged in as: {{ userAuthService.getLoggedInUsername() }}
+</div>
